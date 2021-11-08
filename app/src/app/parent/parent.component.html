@@ -1,1 +1,6 @@
 <p>parent works!</p>
+<button (click)="displayChild()">Child Display</button>
+
+<input type="text" (ngModel)="channelName">
+
+<app-child *ngIf="isChild" [channel]="channelName"></app-child>
