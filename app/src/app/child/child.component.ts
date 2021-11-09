@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, Output, OnChanges, OnDestroy, OnInit, SimpleChanges, EventEmitter, NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -11,6 +11,9 @@ export class ChildComponent implements OnInit, OnDestroy, OnChanges {
   interval : any;
   @Input()
   channel = "";
+
+  @Output() 
+  newItemEvent = new EventEmitter<string>();
 
   constructor() { 
     console.log("Child constructor");
@@ -32,4 +35,16 @@ export class ChildComponent implements OnInit, OnDestroy, OnChanges {
     }, 1000);
   }
 
+  addNewItem(value: string) {
+    this.newItemEvent.emit(value);
+  }
+
+  buttonClick($event: Event){  
+    $event.stopPropagation();
+    console.log("Save button is clicked!", $event);  
+  } 
+
+  divClick(){
+    console.log("Div CLick");
+  }
 }

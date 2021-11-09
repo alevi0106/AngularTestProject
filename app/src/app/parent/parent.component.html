@@ -1,6 +1,12 @@
 <p>parent works!</p>
 <button (click)="displayChild()">Child Display</button>
 
-<input type="text" (ngModel)="channelName">
+<input type="text" #channelName>
 
-<app-child *ngIf="isChild" [channel]="channelName"></app-child>
+<app-child *ngIf="isChild" [channel]="channelName.value" (newItemEvent)="getChildItem($event)"></app-child>
+
+<h4>{{item}}</h4>
+
+<h2>Two-way Binding Demo</h2>  
+   <input [(ngModel)]="fullName" /> <br/><br/>  
+<p> {{fullName}} </p>  

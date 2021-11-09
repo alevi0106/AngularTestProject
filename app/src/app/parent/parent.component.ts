@@ -9,6 +9,8 @@ export class ParentComponent implements OnInit {
 
   isChild = true;
   channelName = 'Vaibhav';
+  fullName = '';
+  item = '';
   constructor() { 
     console.log("Parent constructor");
   }
@@ -19,5 +21,10 @@ export class ParentComponent implements OnInit {
 
   displayChild(){
     this.isChild = !this.isChild;
+  }
+
+  getChildItem(newItem: string):void{
+    this.item = newItem;
+    console.log(this.item);
   }
 }
