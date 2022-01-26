@@ -1,11 +1,18 @@
 <p>child works!</p>
 <div>
-    <h4>{{channel}}</h4>
+  <h4>{{ channel }}</h4>
 </div>
 <div (click)="divClick()">
-    <button [name]="channel" (click)="buttonClick($event)">{{channel}}</button>
+  <button [name]="channel" (click)="buttonClick($event)">{{ channel }}</button>
 </div>
 
 <label for="item-input">Add an item:</label>
-<input type="text" id="item-input" #newItem>
+<input type="text" id="item-input" #newItem />
 <button (click)="addNewItem(newItem.value)">Add to parent's list</button>
+<nav>
+  <ul>
+    <li><a routerLink="./child-a" routerLinkActive="active">Child A</a></li>
+    <li><a routerLink="./child-b" routerLinkActive="active">Child B</a></li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>

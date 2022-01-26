@@ -1,3 +1,13 @@
 <h1>Angular works</h1>
 <h2>Whats so special in it</h2>
-<app-parent></app-parent>
+<nav>
+  <ul>
+    <li>
+      <a routerLink="/parent" routerLinkActive="active">Parent</a>
+    </li>
+    <li>
+      <a routerLink="/child" routerLinkActive="active">Child</a>
+    </li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>
